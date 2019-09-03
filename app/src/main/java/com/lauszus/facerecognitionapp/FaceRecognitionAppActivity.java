@@ -96,6 +96,7 @@ public class FaceRecognitionAppActivity extends AppCompatActivity implements Cam
     private Toolbar mToolbar;
     private NativeMethods.TrainFacesTask mTrainFacesTask;
     public static String name;
+    DatabaseHelper db= new DatabaseHelper(this);
 
     private void showToast(String message, int duration) {
         if (duration != Toast.LENGTH_SHORT && duration != Toast.LENGTH_LONG)
@@ -468,6 +469,8 @@ public class FaceRecognitionAppActivity extends AppCompatActivity implements Cam
                     String faceDistString = String.format(Locale.US, "%.4f", faceDist);
 
                     name = imagesLabels.get(minIndex);
+                    db.adddata(name);
+
 
                     if (faceDist < faceThreshold && minDist < distanceThreshold) // 1. Near face space and near a face class
                         showToast("Face detected: " + imagesLabels.get(minIndex) + ". Distance: " + minDistString, Toast.LENGTH_LONG);
