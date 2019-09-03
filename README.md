@@ -1,4 +1,4 @@
-
+## Project purpose
 
 This project demonstrates how to calculate Eigenfaces and Fisherfaces used for face recognition on an Android device.
 
